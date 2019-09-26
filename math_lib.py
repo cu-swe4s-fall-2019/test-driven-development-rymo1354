@@ -19,6 +19,10 @@ def list_mean(L):
             raise TypeError('Cannot input None as list')
             return None
 
+        if type(L) == int:
+            raise TypeError('Cannot input integer as list')
+            sys.exit(1)
+
 
 def list_stdev(L):
 
@@ -36,3 +40,7 @@ def list_stdev(L):
         if type(L) is None:
             raise TypeError('Cannot input None as list')
             return None
+
+        if type(L) == int:
+            raise TypeError('Cannot input integer as list')
+            sys.exit(1)
