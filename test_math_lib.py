@@ -33,5 +33,16 @@ class TestInteger(unittest.TestCase):
             math_lib.list_stdev(3)
 
 
+class TestFloat(unittest.TestCase):
+
+    def test_mean_float(self):
+        with self.assertRaises(TypeError):
+            math_lib.list_mean(3.5)
+
+    def test_stdev_float(self):
+        with self.assertRaises(TypeError):
+            math_lib.list_stdev(3.5)
+
+
 if __name__ == '__main__':
     unittest.main()
