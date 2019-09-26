@@ -23,6 +23,10 @@ def list_mean(L):
             raise TypeError('Cannot input integer as list')
             sys.exit(1)
 
+        if type(L) == float:
+            raise TypeError('Cannot input float as list')
+            sys.exit(1)
+
 
 def list_stdev(L):
 
@@ -43,4 +47,8 @@ def list_stdev(L):
 
         if type(L) == int:
             raise TypeError('Cannot input integer as list')
+            sys.exit(1)
+
+        if type(L) == float:
+            raise TypeError('Cannot input float as list')
             sys.exit(1)
