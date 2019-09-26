@@ -22,5 +22,16 @@ class TestString(unittest.TestCase):
             math_lib.list_stdev('test')
 
 
+class TestInteger(unittest.TestCase):
+
+    def test_mean_integer(self):
+        with self.assertRaises(TypeError):
+            math_lib.list_mean(3)
+
+    def test_stdev_integer(self):
+        with self.assertRaises(TypeError):
+            math_lib.list_stdev(3)
+
+
 if __name__ == '__main__':
     unittest.main()
