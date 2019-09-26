@@ -11,5 +11,16 @@ class TestNone(unittest.TestCase):
         self.assertEqual(math_lib.list_stdev(None), None)
 
 
+class TestString(unittest.TestCase):
+
+    def test_mean_string(self):
+        with self.assertRaises(TypeError):
+            math_lib.list_mean('test')
+
+    def test_stdev_string(self):
+        with self.assertRaises(TypeError):
+            math_lib.list_stdev('test')
+
+
 if __name__ == '__main__':
     unittest.main()
