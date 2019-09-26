@@ -31,6 +31,11 @@ def list_mean(L):
             raise TypeError('Cannot input boolean as list')
             sys.exit(1)
 
+    except ZeroDivisionError:
+        if L == []:
+            raise ZeroDivisionError('Array cannot be empty')
+            sys.exit(1)
+
 
 def list_stdev(L):
 
@@ -59,4 +64,9 @@ def list_stdev(L):
 
         if type(L) == bool:
             raise TypeError('Cannot input boolean as list')
+            sys.exit(1)
+
+    except ZeroDivisionError:
+        if L == []:
+            raise ZeroDivisionError('Array cannot be empty')
             sys.exit(1)
