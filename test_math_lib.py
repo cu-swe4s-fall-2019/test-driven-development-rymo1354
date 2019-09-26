@@ -95,5 +95,16 @@ class TestRandomArray(unittest.TestCase):
                                statistics.pstdev(A))
 
 
+class TestBadArray(unittest.TestCase):
+
+    def test_mean_bad(self):
+        with self.assertRaises(TypeError):
+            math_lib.list_mean(['B', 'A', 3])
+
+    def test_stdev_bad(self):
+        with self.assertRaises(TypeError):
+            math_lib.list_stdev([1, [], 3])
+
+
 if __name__ == '__main__':
     unittest.main()
