@@ -1,5 +1,7 @@
 import unittest
 import math_lib
+import random
+import statistics
 
 
 class TestNone(unittest.TestCase):
@@ -66,6 +68,31 @@ class TestEmptyArray(unittest.TestCase):
     def test_stdev_empty(self):
         with self.assertRaises(ZeroDivisionError):
             math_lib.list_stdev([])
+
+
+class TestRandomArray(unittest.TestCase):
+
+    def test_mean_random(self):
+
+        A = []
+
+        for i in range(50):
+            A.append(random.uniform(1, 100))
+            A.append(random.randint(1, 100))
+
+        self.assertAlmostEqual(math_lib.list_mean(A),
+                               statistics.mean(A))
+
+    def test_stdev_random(self):
+
+        A = []
+
+        for i in range(50):
+            A.append(random.uniform(1, 100))
+            A.append(random.randint(1, 100))
+
+        self.assertAlmostEqual(math_lib.list_stdev(A),
+                               statistics.pstdev(A))
 
 
 if __name__ == '__main__':
