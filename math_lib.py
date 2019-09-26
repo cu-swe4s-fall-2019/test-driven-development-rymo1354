@@ -5,6 +5,7 @@ import math
 def list_mean(L):
 
     try:
+
         s = 0
         for v in L:
             s += v
@@ -31,10 +32,19 @@ def list_mean(L):
             raise TypeError('Cannot input boolean as list')
             sys.exit(1)
 
+        if any(isinstance(x, str) or type(x) == bool
+               or isinstance(x, list) or x is None for x in L):
+            raise TypeError('Bad Value')
+            sys.exit(1)
+
     except ZeroDivisionError:
         if L == []:
             raise ZeroDivisionError('Array cannot be empty')
             sys.exit(1)
+
+    except ValueError:
+        raise ValueError('Unexpected value in array')
+        sys.exit(1)
 
 
 def list_stdev(L):
@@ -64,6 +74,11 @@ def list_stdev(L):
 
         if type(L) == bool:
             raise TypeError('Cannot input boolean as list')
+            sys.exit(1)
+
+        if any(isinstance(x, str) or type(x) == bool
+               or isinstance(x, list) or x is None for x in L):
+            raise TypeError('Bad Value')
             sys.exit(1)
 
     except ZeroDivisionError:
