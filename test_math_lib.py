@@ -55,5 +55,16 @@ class TestBoolean(unittest.TestCase):
             math_lib.list_stdev(True)
 
 
+class TestEmptyArray(unittest.TestCase):
+
+    def test_mean_empty(self):
+        with self.assertRaises(ZeroDivisionError):
+            math_lib.list_mean([])
+
+    def test_stdev_empty(self):
+        with self.assertRaises(ZeroDivisionError):
+            math_lib.list_stdev([])
+
+
 if __name__ == '__main__':
     unittest.main()
