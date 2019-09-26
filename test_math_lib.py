@@ -44,5 +44,16 @@ class TestFloat(unittest.TestCase):
             math_lib.list_stdev(3.5)
 
 
+class TestBoolean(unittest.TestCase):
+
+    def test_mean_boolean(self):
+        with self.assertRaises(TypeError):
+            math_lib.list_mean(False)
+
+    def test_stdev_boolean(self):
+        with self.assertRaises(TypeError):
+            math_lib.list_stdev(True)
+
+
 if __name__ == '__main__':
     unittest.main()
