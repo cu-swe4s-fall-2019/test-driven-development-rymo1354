@@ -3,7 +3,18 @@ import math
 
 
 def list_mean(L):
+    """
+    computes the mean of a list of numbers
 
+    Arguments
+    _________
+    L : list of ints or floats
+        calculate mean of this list
+
+    Returns
+    _______
+    mean : float
+    """
     try:
 
         s = 0
@@ -48,6 +59,18 @@ def list_mean(L):
 
 
 def list_stdev(L):
+    """
+    computes the stdev of a list of numbers
+
+    Arguments
+    _________
+    L : list of ints or floats
+        calculate mean of this list
+
+    Returns
+    _______
+    stdev : float
+    """
 
     try:
         s = 0
