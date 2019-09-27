@@ -11,7 +11,8 @@ def read_stdin_col(col_num):
         raise TypeError("Invalid Column")
 
     stdin = sys.stdin.readlines()
-
+    if len(stdin[0].rstrip().split(' ')) < col_num:
+        raise IndexError('Column out of range')
     column = []
 
     for line in stdin:
