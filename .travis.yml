@@ -10,7 +10,11 @@ before_install:
     - conda activate test
     - conda install -y pycodestyle
     - conda install --yes python=3.6
+    - conda install --yes numpy
+    - conda install --yes matplotlib
       
 script:
-    - bash test_viz.sh
-    - python test_viz.py
+    - python -m unittest test_math_lib.py
+    - bash gen_data_random.sh | python -m unittest test_get_data.py
+    - python -m unittest test_data_viz.py
+    - pycodestyle *.py
