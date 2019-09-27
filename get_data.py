@@ -2,7 +2,19 @@ import sys
 
 
 def read_stdin_col(col_num):
+    """
+    reads numbers from stdin and converts to list
 
+    Arguments
+    _________
+    col_num : int
+        column number from stdin to get values
+
+    Returns
+    _______
+    column : list
+        list of values from supplied column
+    """
     if col_num is None:
         raise TypeError("No column provided")
         sys.exit(1)
