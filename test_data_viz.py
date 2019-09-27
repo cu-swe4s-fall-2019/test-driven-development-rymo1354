@@ -80,5 +80,43 @@ class TestHistogram(unittest.TestCase):
                           [1, 2, 3, 4, 5], "read_only.txt")
 
 
+class TestCombo(unittest.TestCase):
+    def test_combo_null(self):
+        self.assertRaises(TypeError, data_viz.combo, None)
+
+    def test_combo_empty_list(self):
+        self.assertRaises(IndexError, data_viz.combo, [])
+
+    def test_combo_wrong_type(self):
+        self.assertRaises(TypeError, data_viz.combo, 'test')
+        self.assertRaises(TypeError, data_viz.combo, 3)
+        self.assertRaises(TypeError, data_viz.combo, False)
+
+    def test_combo_list_wrong_type(self):
+        self.assertRaises(TypeError, data_viz.combo,
+                          ['bad', 1, ['bad']])
+
+    def test_combo_filename_str(self):
+        self.assertRaises(TypeError, data_viz.combo, [1, 2, 3],
+                          1)
+
+    def test_combo_write_to_file(self):
+        data_viz.combo([1, 2, 3], 'newfile.png')
+        self.assertTrue(os.path.exists("newfile.png"))
+        os.remove("newfile.png")
+
+    def test_combo_permission(self):
+        with open("read_only.png", "w") as f:
+            f.write("No Access")
+        os.chmod("read_only.png", stat.S_IREAD | stat.S_IRGRP | stat.S_IROTH)
+        self.assertRaises(PermissionError, data_viz.combo, [
+                          1, 2, 3, 4, 5], "read_only.png")
+        os.remove("read_only.png")
+
+    def test_combo_wrong_file(self):
+        self.assertRaises(ValueError, data_viz.combo,
+                          [1, 2, 3, 4, 5], "read_only.txt")
+
+
 if __name__ == '__main__':
     unittest.main()
