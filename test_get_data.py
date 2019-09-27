@@ -19,5 +19,13 @@ class TestIncorrectValues(unittest.TestCase):
         self.assertRaises(TypeError, get_data.read_stdin_col, 5.4)
 
 
+class TestOutofRange(unittest.TestCase):
+    def test_read_stdin_col_out_of_range(self):
+        for line in sys.stdin.readlines()[0]:
+            size = len(line.rstrip().split(' '))
+
+        self.assertRaises(IndexError, get_data.read_stdin_col, size+1)
+
+
 if __name__ == '__main__':
     unittest.main()
